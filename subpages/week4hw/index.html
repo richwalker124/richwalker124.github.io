@@ -5,8 +5,8 @@
        
        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      
-        <title>Magic Crystal</title>
+        <link rel="icon" href="assets/images/kirbymad.png">
+        <title>Kirby Game</title>
     </head>
 
     <body>
@@ -27,6 +27,29 @@
                 <div class = "col-md-2"></div>
             </div>
 
+            <!--This will contain our values for the game-->
+            <div class = "row">
+                <div class = "col-md-3"></div>
+                <!--User Score-->
+                <div class = "col-md-2">
+                    <h5>Your Score: <span id = "user-score">0</span></h5>
+
+                </div>
+                <div class = "col-md-2">
+                    <h5>Wins: <span id = "wins"></span></h5>
+                    <div class = "row">
+                        <div class = "col-md-12">
+                            <h5>Losses: <span id = "losses"></span></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class = "col-md-2">
+                    <h5>Score to get: <span id = "goal">0</span></h5>
+                </div>
+                <div class = "col-md-3"></div>
+            </div>
+
+
 
                 <!--This row will contain the first two images of our boy-->
             <div class = "row">
@@ -35,11 +58,25 @@
                     <img id="kirby-og" src = "assets/images/kirby.png" width="220px" height = "200px">
                 </div>
                 <div class = "col-md-4">
-                    <img src = "assets/images/kirbyfat.png" width="220px" height = "200px">
+                    <img id = "kirby-fat" src = "assets/images/kirbyfat.png" width="220px" height = "200px">
                 </div>
                 <div class = "col-md-2"></div>
-            </div>
 
+            </div>
+            
+            <!--This row contains the second two images of our boy-->
+
+            <div class = "row">
+                <div class = "col-md-2"></div>
+                <div class = "col-md-4">
+                    <img id="kirby-suck" src = "assets/images/kirbysuck.png" width="220px" height = "200px">
+                </div>
+                <div class = "col-md-4">
+                    <img id = "kirby-run" src = "assets/images/kirbyrun.png" width="220px" height = "200px">
+                </div>
+                <div class = "col-md-2"></div>
+
+            </div>
 
            
         </div>
