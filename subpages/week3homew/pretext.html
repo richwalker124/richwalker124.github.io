@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<hmtl lang="en-us">
+    <head>
+
+    </head>
+
+    <body>
+        <div id="empty"></div>
+        <script type = "text/javascript">
+        var targetdiv = document.getElementById("empty");
+        
+        targetdiv.textContent = "Hello Friends!"
+
+            //makes a new div
+        var newDiv = document.createElement("div");
+
+            //ADDS CONTENT TO NEW DIV
+            newDiv.textContent = "A pleasure to meet you!";
+
+            targetdiv.appendChild(newDiv);
+
+
+            //would apply css if it were there
+            newDiv.setAttribute("class", "fancy");
+
+
+        </script>
+        <!-- <script>
+            var x = prompt("Enter number one");
+            var y = prompt("enter number 2");
+
+            if (x>y){
+                alert(x)
+
+            }else{
+                alert(y)
+            }
+        </script> -->
+
+
+
+    </body>
+</hmtl>

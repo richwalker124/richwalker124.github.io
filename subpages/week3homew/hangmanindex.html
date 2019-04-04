@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+    <head>
+        <title>
+            Hangman Game!
+        </title>
+    </head>
+
+
+
+    
+    <body>
+        <script>
+            //TODO
+            //Turn words into arrays
+            //Add win condition based on if all letters are guessed.
+            //Add a lose condition with too many incorrect guesses.
+            //add live updating things
+            //create it so that the slots for the words pop up without showing the final word.
+            //Word randomizer for selection
+            //Multiple sets of words to choose from
+
+            
+            //Hangman Object
+            var hangman = {
+                words : ["test", "please", "mom"],
+               guesses:[],
+               neededGuesses:100,
+               goodGuesses: [],
+               totalGuesses:0,
+
+
+            }
+
+            //Alphabet and other variables
+            var alphabet = ["a","b","c","d","e","f","g","h","i","j","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+           //Temp variables that will be used in object
+            var words = "test";
+            var guesses = [];
+            var gGuesses = [];
+            var answerKey = [];
+            var randomNumber ;
+            var Lives = 7;
+            var Win = false;
+            var lowGuess = null;
+           
+//adds word to array to check guesses array to later
+        //    for (i=0; i<hangman.words[0].length-1;i++){
+        //        hangman.wordArray.push(hangman.words[0].charAt(i));
+        //        console.log(hangman.wordArray);
+
+
+
+           //Keeps everything running this breaks
+            // while (Win===false){
+
+             //Detect Keypress *** MAJORITY OF USER INPUT ***    
+            document.onkeyup = function(event){
+
+                    
+        // Addes User guesses to var guesses
+            lowGuess = event.key.toLowerCase();
+            guesses.push(lowGuess);
+            
+
+            
+            // console.log(guesses);
+            // console.log(guesses.length-1);
+            // console.log(gGuesses);
+            
+           
+           
+           
+            hangman.neededGuesses = hangman.words[0].length;
+        //     console.log(hangman.neededGuesses);
+               
+
+            //Checks if user guess is a part of the alphabet and not just any key.
+            if(alphabet.indexOf(lowGuess)>0 || lowGuess === null){
+
+            //Detect if user guess is present in word 
+            for ( i = 0 ; i < hangman.words[0].length ; i++ ){
+                //console.log[i];
+
+                //Pushes guessed letters into an array if they are correct
+                if (hangman.words[0].charAt[i] === lowGuess){
+                    hangman.goodGuesses.push(hangman.words[0].charAt[i]);
+                    alert(hangman.goodGuesses);
+                    totalGuesses++;
+                }
+
+            }
+            
+            }
+
+
+
+
+
+                //Retiring code to try different way!!!
+                //Adds correct guess to an array that will be checked at the end to word
+                // if(hangman.words[0].charAt(i) === hangman.guesses[hangman.guesses.length-1]){
+                //     alert("nice");
+                //     gGuesses.push(guesses[guesses.length-1]);
+                //     stop;
+  
+                // }else {
+                //     console.log("shame")
+                // }}
+
+                // }
+                // //Alerts user if key input is incorrect and removes the incorrect value from guesses.
+                // else if (alphabet.indexOf(lowGuess)<0){
+                //     alert("That isn't a letter!");
+                //     guesses.splice(guesses.length-1);
+                //     stop;
+
+                // }
+
+                
+                // if(hangman.words[1].charAt(i) === guesses[guesses.length]){
+                //     alert("nice")
+                // }
+            }
+            
+            
+
+        </script>
+    </body>
+</html>

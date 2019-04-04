@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+    <head>
+        <meta charset = "UTF-8">
+        <title>
+            Hangman
+        </title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrapchanges.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+    </head>
+    <body>
+
+
+    <div class = "container">
+        <h1>Rich's Hangman Game</h1>
+        
+        <div class= "row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class = "card" style = "width: 25rem;">
+                    <h4 class = "card-title" style = "text-align: center">Letters</h4>
+                    <div id="button"></div> 
+                </div>  
+            </div>
+            <div class= "col-md-4"></div>
+            </div>
+        <div class = "row">
+            <div class = "col-md-4"></div>
+            <div class ="col-md-4">
+                <div class = "row">
+                    <div class = "col-md-12">
+            
+                    </div>
+                </div>
+                 
+                <span id = "hangman"></span>
+                
+            </div>
+            <div class = "col-md-4"></div>
+        </div>
+            <div class = "row">
+                <div class = "col-md-4"></div>
+                <div class = "col-md-4">
+                    <h3>Guesses</h3>
+                    <span id = "lettersGuessed"></span>
+                </div>
+                <div class = "col-md-4"></div>
+
+            </div>
+
+        </div>
+        
+        <!--Stylization for hangman, letter selection on the left, words and drawing on the right-->
+        <!-- <container>
+            ***************NEEED A HEADER ********************-->
+
+            <!-- <row>
+                <div class = "col-md-12">
+                    <h1>Rich's Hangman Game</h1>
+                </div>
+            </row>
+            <row>
+                <div class = "col-md-4 col-xs-1"></div>
+                <div class = "col-md-4 col-xs-10">
+                     <div class = "card" style = "width: 18rem;">
+                        <h4 class = "card-title" style = "text-align: center">Letters</h4>
+                     <div id="button"></div>   
+                    </div>
+                </div>
+                <div class = "col-md-4 col-xs-1"></div>
+            </row> -->
+
+
+            <!-- <row>
+                <div class = "col-md-12 "> <h1 >HANGMAN!!!!!</h1></div>
+            </row> -->
+            <!-- <row>
+                <div class= "col-md-1"></div>
+
+                For our letters right below!-->
+                <!-- <div class= "col-md-3"> -->
+                   
+                    
+                <!-- </div>
+                <div class="col-md-2"> </div>
+
+                For our Words!-->
+                <!-- <div class="col-md-5">
+                   <h3>Guesses</h3>
+                    <span id = "lettersGuessed"></span>
+                </div>
+                <div class="col-md-1"></div>
+                
+            </row>
+            <row>
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <span id = "hangman"></span>
+                    <row>
+                        <div class = "col-md-12">
+                            <h2 id = "lives">Lives: </h2>
+                        </div>
+                    </row>
+                </div> 
+            </row>
+        </container>  -->
+        <style>
+            .button {
+                width: 30px;
+                height: 30px;
+                border-style: solid;
+                padding: 2px;
+                float: left;
+                margin: 2px;
+            }
+
+            .clickable{
+                /* i hope this works */
+                padding:4px;
+                color: blue;
+            }
+            
+            .guessed{
+                padding: 5px;
+                color:navy;
+            }
+            h2{
+
+            }
+            h3 {
+                text-align: center;
+                padding-bottom: 20px;
+                padding-top: 20px;
+            }
+            h1 {
+                text-align: center;
+                padding-bottom: 20px;
+            }
+        </style>
+        <script>
+
+            //Variable Definition
+            //Basic Variables
+            var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+            var uAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+            var lives = 10;
+            var randomWord;
+
+            //Word list(s)
+            var wList = ["warframe", "civilization", "cuphead", "mario", "bioshock", "okami", "wolfenstein", "prey", "outlast", "distance"]
+                //var wList = ["test"]
+            //Variables that work with hangman logic
+            var guesses = []
+            var word = []
+            var wordCheck = []
+            var recentGuess = ""
+            var userGuesses = []
+            var remainingLetters ;
+            //List of all guesses made
+            var totalGuesses = []
+
+            function equalCheck (){
+                alert("TEST")
+              var c = word.toString();
+              alert(c)
+              var d = wordCheck.toString();
+              alert(d)
+              if (c === d){
+                alert("You win! Please reload the page!")
+                break;
+              }
+          }
+            //Looping document forever!
+             $(document).ready(function(){
+
+            //Creating our beautiful letter buttons~
+            // var alphaButton = function () {
+            //     var alphaButton = document.getElementById("buttons")
+            //     var alpha = document.createElement("buttonLetter")
+           
+
+
+            for (i=0;i<alphabet.length;i++){
+                var alphaButton = $("<button>")
+                alphaButton.addClass("button")
+                alphaButton.attr("data-letter",uAlphabet[i])
+                alphaButton.text(uAlphabet[i])
+                alphaButton.val(alphabet[i])
+                $("#button").append(alphaButton);
+
+            }
+            //Tying our letter buttons to a variable
+            $("button").click(function(){
+                var guessed = $("<p>")
+                guessed.addClass("guessed")
+                // console.log($(this).val())
+                guesses.push($(this).val())
+                gameLogic();
+                equalCheck(word, wordCheck);
+            //    console.log(userGuesses) 
+            })
+
+            //Logic for Hangman
+
+            //Random number Generator 
+           randomWord = Math.floor(Math.random() * wList.length)
+        //    console.log(randomWord)
+           var storedWord = wList[randomWord]
+           
+           //Sets Remaining Letters to length of random word
+           remainingLetters = storedWord.length;
+        //    console.log(remainingLetters)
+
+
+          
+
+
+            //Put Word into two arrays
+            for (i = 0; i < wList[randomWord].length;i++){
+                word.push(storedWord.charAt(i))
+               
+                //Make one word array into dashes
+                wordCheck.push("_")
+            }
+            console.log(word)
+            console.log(wordCheck)
+
+            //Checks if the two arrays are equal
+
+            //This code runs everytime a button is pressed! ****************************
+function gameLogic(){
+
+        
+        recentGuess = guesses.pop();
+       
+        totalGuesses.push(recentGuess);
+        alert(recentGuess)
+            
+           
+            //Displays guessed letters
+            lettersGuessed.innerHTML = totalGuesses;
+
+            //Displays word as _
+            hangman.innerHTML = wordCheck;
+
+            
+
+            if (lives < 1){
+                alert("You have " + lives + " left!");
+                alert("The word was " + wList[randomWord] + ".");
+                lives = 11;
+                randomWord = Math.floor(Math.random() * wList.length)
+                alert("Please reload the page!")
+            }
+            
+
+            //Check user guess to word
+                        //checks if user guess is present in word
+                        if (word.indexOf(recentGuess) >= 0){
+                            // alert("Your guess is in the word!")
+                         
+
+                            //Checks if user guess is in checked word
+                            if(wordCheck.indexOf(recentGuess) >= 0){
+                                alert("You already guessed that!")
+
+                            } else {
+                                 for (bab = 0; bab < word.length ; bab ++){
+                                    //  alert("working sort of")
+                                     if (word[bab] === recentGuess){
+                                         wordCheck[bab] = recentGuess;
+                                         alert(wordCheck)
+                                        
+                                     }
+                                 }
+                                 equalCheck(word, wordCheck);
+                                 
+                                // for (k = 0; k < word.length ; k++ ){
+                                //     if (word[k] === recentGuess){
+                                //         wordCheck[k] = recentGuess;
+                                //         alert(wordCheck);
+                                //     }
+                                //     // cHECKS VALUES AT THE END!
+                                //     equalCheck(word,wordCheck)
+                                // }
+                             
+                            }
+
+                            //Takes a live away and lets the user know!
+                        } else if (word.indexOf(recentGuess) < 0){
+                            lives --;
+                            alert("Guess is not in word! Your lives are now at " + lives)
+                            
+                        }
+
+
+            }
+            
+
+            //Check arrays to eachother (the dashes one and the word)
+            //check if guess is in word array
+           
+           //Sets recent guess to most recent letter guessed
+            
+          
+            
+         
+                // if ()
+            
+            //Doesnt Work
+            // if (word.indexOf(recentGuess) < 0){
+            //     alert("Initial if statement" + recentGuess)
+            //     for (i = 0 ; i<randomWord.length; i++){
+            //         alert("for loop")
+            //         if(word[i] == recentGuess)
+            //         correctGuesses.push(i);
+            //         alert(correctGuesses)
+            //     }
+            //     console.log[correctGuesses]
+                
+            // }
+        })
+        </script>
+    </body>
+</html>
