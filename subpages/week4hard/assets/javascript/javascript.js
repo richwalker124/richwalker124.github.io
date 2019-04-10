@@ -254,7 +254,7 @@ counterDamage = roy.attack
   //If cloud is the enemy
   if (computerChar === "cloud"){
     damage = roy.attack + roy.rage;
-    cloud.health = cloud.health - damage;
+    cloud.health -= damage;
     $("#cpu-health").html(cloud.health)
     winCheck();
     cloudAtt();
@@ -336,9 +336,10 @@ function cloudAtt(){
   damage = cloud.attack + cloud.rage
   counterDamage = cloud.attack
   if (cloud.limit > 4){
-    alert("Limit Break! Cloud dealt " + damage + "!")
+   
     cloud.limit = 0;
     damage = (cloud.attack + cloud.rage) * cloud.bonusDmg
+    alert("Limit Break! Cloud dealt " + damage + "!")
     counterDamage = cloud.attack * cloud.bonusDmg
   }
 
