@@ -254,6 +254,7 @@ counterDamage = roy.attack
   //If cloud is the enemy
   if (computerChar === "cloud"){
     damage = roy.attack + roy.rage;
+    cloud.health = cloud.health - damage;
     $("#cpu-health").html(cloud.health)
     winCheck();
     cloudAtt();
