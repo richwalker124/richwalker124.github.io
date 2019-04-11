@@ -5,16 +5,22 @@
         <title>
             Hangman
         </title>
-        <!-- <link rel="stylesheet" type="text/css" href="css/bootstrapchanges.css"> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrapchanges.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/bootstrapchanges.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  -->
     </head>
     <body>
 
 
     <div class = "container">
+         <!--Nav Bar-->
+            <!-- As a heading -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="../../index.html">Portfolio Website</a>
                     <!--Adds a button that shows up when web page gets too small-->
@@ -30,12 +36,27 @@
                         <li class="nav-item">
                           <a class="nav-link" href="#">Link</a>
                         </li>
+                        <!-- <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                          </a> 
+                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                          </div> 
+                        </li>  -->
                         <li class="nav-item">
-                                <a class="nav-link" href="bootstrapportfolio.html">Portfolio</a>
-                              </li>
-                            </ul>
-                        </div>
-            </nav>
+                          <a class="nav-link" href="bootstrapportfolio.html">Portfolio</a>
+                        </li>
+                      </ul>
+                      <!-- <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      </form> -->
+                    </div>
+                  </nav>
         <h1>Rich's Hangman Game</h1>
         
         <div class= "row">
@@ -52,24 +73,19 @@
             <div class = "col-md-4"></div>
             <div class ="col-md-4">
                 <div class = "row">
-                    <div class = "text-center col-md-4"></div>
-                    <div class = "text-center col-md-4">
-                        <h3 class = "text-center" id = "hangman">Click a letter to start Guessing!</h3>
-                        <br>
-                        <h4>Lives: <span class = "lives">0</span></h4>
+                    <div class = "col-md-12">
+            
                     </div>
-                    <div class = "col-md-4"></div>
                 </div>
-            </div>
                  
-               
+                <span id = "hangman"></span>
                 
             </div>
             <div class = "col-md-4"></div>
         </div>
             <div class = "row">
                 <div class = "col-md-4"></div>
-                <div class = "col-md-4 text-center">
+                <div class = "col-md-4">
                     <h3>Guesses</h3>
                     <span id = "lettersGuessed"></span>
                 </div>
@@ -166,7 +182,6 @@
                 padding-bottom: 20px;
             }
         </style>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
         <script>
 
             //Variable Definition
@@ -177,8 +192,8 @@
             var randomWord;
 
             //Word list(s)
-            var wList = ["warframe", "civilization", "cuphead", "mario", "bioshock", "okami", "wolfenstein", "prey", "outlast", "distance", "contrast", "overgrowth", "audiosurf", "magicka", "oneshot", "doom", "darksiders", "borderlands", "unturned", "uncharted", "persona", "minecraft", "terraria", "scribblenauts", "portal", "dishonored", "thief"]
-                //var wList = ["yooka-laylee"]
+            var wList = ["warframe", "civilization", "cuphead", "mario", "bioshock", "okami", "wolfenstein", "prey", "outlast", "distance"]
+                //var wList = ["test"]
             //Variables that work with hangman logic
             var guesses = []
             var word = []
@@ -189,18 +204,16 @@
             //List of all guesses made
             var totalGuesses = []
 
-            function equalCheck (check1,check2){
-                // alert("TEST")
-              var c = check1.toString();
-            //   alert(c)
-              var d = check2.toString();
-            //   alert(d)
+            function equalCheck (){
+                alert("TEST")
+              var c = word.toString();
+              alert(c)
+              var d = wordCheck.toString();
+              alert(d)
               if (c === d){
-                alert("You win! Please reload the page!");
-                return;
-            
+                alert("You win! Please reload the page!")
+                break;
               }
-              
           }
             //Looping document forever!
              $(document).ready(function(){
@@ -214,7 +227,8 @@
 
             for (i=0;i<alphabet.length;i++){
                 var alphaButton = $("<button>")
-                alphaButton.addClass("button")
+                alphaButton.addClass("button alphabutton")
+               
                 alphaButton.attr("data-letter",uAlphabet[i])
                 alphaButton.text(uAlphabet[i])
                 alphaButton.val(alphabet[i])
@@ -222,7 +236,7 @@
 
             }
             //Tying our letter buttons to a variable
-            $("button").click(function(){
+            $("#alphabutton").click(function(){
                 var guessed = $("<p>")
                 guessed.addClass("guessed")
                 // console.log($(this).val())
@@ -266,19 +280,14 @@ function gameLogic(){
         recentGuess = guesses.pop();
        
         totalGuesses.push(recentGuess);
-        // alert(recentGuess)
+        alert(recentGuess)
             
            
             //Displays guessed letters
-            // lettersGuessed.innerHTML = totalGuesses;
-            $("#lettersGuessed").html(totalGuesses);
+            lettersGuessed.innerHTML = totalGuesses;
 
             //Displays word as _
-            // hangman.innerHTML = wordCheck;
-            $("#hangman").html(wordCheck);
-
-            //Displays lives 
-            $(".lives").html(lives);
+            hangman.innerHTML = wordCheck;
 
             
 
@@ -300,26 +309,17 @@ function gameLogic(){
                             //Checks if user guess is in checked word
                             if(wordCheck.indexOf(recentGuess) >= 0){
                                 alert("You already guessed that!")
-                                
 
                             } else {
                                  for (bab = 0; bab < word.length ; bab ++){
                                     //  alert("working sort of")
                                      if (word[bab] === recentGuess){
                                          wordCheck[bab] = recentGuess;
-                                         //Displays guessed letters
-                                         $("#lettersGuessed").html(totalGuesses);
-                                         //Displays word to be guessed.
-                                         $("#hangman").html(wordCheck);
-                                        //  lettersGuessed.innerHTML = totalGuesses;
-                                        //  alert(wordCheck)
-                                        
-                                        
-                                        
+                                         alert(wordCheck)
                                         
                                      }
                                  }
-                                //  equalCheck(word, wordCheck);
+                                 equalCheck(word, wordCheck);
                                  
                                 // for (k = 0; k < word.length ; k++ ){
                                 //     if (word[k] === recentGuess){
@@ -335,7 +335,6 @@ function gameLogic(){
                             //Takes a live away and lets the user know!
                         } else if (word.indexOf(recentGuess) < 0){
                             lives --;
-                            $(".lives").html(lives);
                             alert("Guess is not in word! Your lives are now at " + lives)
                             
                         }
