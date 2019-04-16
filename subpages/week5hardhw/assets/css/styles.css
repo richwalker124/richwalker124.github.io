@@ -1,0 +1,31 @@
+.row20{
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+body{
+    background-color: gray;
+}
+
+.small-gap{
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.bottom-gap{
+    padding-bottom: 10px;
+    
+}
+
+img {
+    height : 100%;
+    width  : 100%;
+}
+
+.white-text{
+    color: white;
+}
+
+.blackBackground {
+    background-color: black
+}

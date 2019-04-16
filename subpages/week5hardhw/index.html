@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang = "en-us">
+    <head>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel = "stylesheet" type = "text/css" href = "assets/css/styles.css">
+    <link rel="icon" href="assets/images/logo.png">
+    <title>Persona Trivia</title>
+    </head>
+
+    <body>
+<!--Have 4 cards each be the answer. the cards will be clicked on to-->
+<div class = "container">
+<!--NAV BAR FOR PORTFOLIO FUNCTIONALITY-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Portfolio Website</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="../../index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Contact (BETA)</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../../bootstrapportfolio.html" >Portfolio</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+
+
+    <div class = "jumbotron jumbotron-fluid blackBackground">
+        <!--TITLE TEXT GOES HERE--><h1 class ="text-center white-text">Persona Trivia Game</h1>
+        <p class = "text-center white-text">Questions taken from Persona 5 and 4!</p>
+    </div>
+
+    <!--This row will hold the start screen, it will be shown until the game starts!-->
+    <div class = "row row20 row-start">
+        <div class = "col-md-3"></div>
+        <div class = "col-md-6">
+            <div class = "card">
+                <div class = "card-body">
+                    <h1 class = "card-text text-center">Welcome to the great Persona quiz game!</h1>
+                    <div class = "small-gap"></div>
+                    <!--Start Button Button-->
+                    <div class = "card bg-info start-button">
+                        <div class = "card-body">
+                            <h4 class = "card-text text-center">Start</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class = "bottom-gap"></div>
+            </div>
+        </div>
+        <div class = "col-md-3"></div>
+    </div>
+
+
+    <!--Question row-->
+    <div class = "row row10 row-question">
+        <div class = "col-md-4"></div>
+        <div class = "col-md-4 question">
+            <!--This is where the Questions will go!-->
+
+            <div class = "row">
+                <div class =" col-md-12">
+                    <div id = "timercard" class = "card bg-info">
+                        <div class = "card-body text-center">
+                            <p class = "card-text text-center">
+                                <!--Timer will go here-->
+                                <h3 class = "timer">30</h3>
+                                <br>
+                                <h3 class = "question-write">Super cool example Question!</h3>
+                            </p>
+                             
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+        <div class = "col-md-4"></div>
+    </div>
+
+
+    <!--Answer Row-->
+    <div class = "row row20 row-answer">
+        <div class = "col-md-2"></div>
+        <div class = "col-md-8">
+            <!--This is where the cards will go!-->
+            <div class = "card-deck answers">
+
+                <!--First Card-->
+                <button class = "card bg-danger">
+                    <div class = "card-body text-center">
+                        <p class = "card-text answer answer1 text-center" value = "a">Example Text!</p>
+                    </div>
+                </button>
+
+                <!--Second Card-->
+                <button class = "card bg-danger">
+                        <div class = "card-body text-center">
+                            <p class = "card-text answer answer2 text-center" value = "b">Example Text!</p>
+                        </div>
+                    </button>
+
+                <!--Third Card-->
+                <button class = "card bg-danger">
+                        <div class = "card-body text-center">
+                            <p class = "card-text answer answer3 text-center" value = "c">Example Text!</p>
+                        </div>
+                    </button>
+
+                <!--Fourth Card-->
+                <button class = "card bg-danger">
+                        <div class = "card-body text-center">
+                            <p class = "card-text answer answer4 text-center" value = "d">Example Text!</p>
+                        </div>
+                    </button>
+
+            </div>
+        </div>
+        <div class = "col-md-2"></div> 
+    </div>
+
+    <!--This row will contain the results!-->
+    <div class = "row row20 row-result">
+        <div class = "col-md-3"></div>
+        <div class = "col-md-6">
+            <div class = "card bg-info">
+                <div class = "card-body text-center">
+                    <h5 class = "card-text result-text">Wow, I'm sure you did great!</h5>
+                    <br>
+                    <img src = "assets/images/p5.gif" alt="placeholder gif">
+                    <br>
+                    <button id = "next-question" class = "">Next</button>
+                </div>
+            </div>
+        </div>
+        <div class = "col-md-3"></div>
+
+    </div>
+</div>
+<!--Javascript Links go here!-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+<script src = "assets/javascript/js.js"></script>
+    </body>
+</html>
